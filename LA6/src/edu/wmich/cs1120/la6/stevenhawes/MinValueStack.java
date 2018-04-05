@@ -1,3 +1,10 @@
+/*
+ * Author: Steven Hawes
+ * Class: CS1120
+ * Project: LA6
+ * Description: To learn and develop skills relating to past knowledge and 
+ * data storage types
+ */
 package edu.wmich.cs1120.la6.stevenhawes;
 
 import java.util.EmptyStackException;
@@ -34,23 +41,27 @@ public class MinValueStack<T extends Comparable<T>> {
     		return data;
     	}
     	try {
+    		// compares the data of stack1 then pushes to stack2 if greater than that in stack1
     		while(data.compareTo(stack1.peek()) > 0) {
     		stack2.push(stack1.pop());
     		}
     	}
     	catch(EmptyStackException e) {
-    		
+    		// Prevents program failure
     	}
-    	
+    	// Pushes the data to stack2
     	stack2.push(data);
     	
+    	// Takes the data from stack1 and stack2
     	while(stack1.isEmpty() == false) {
     		stack2.push(stack1.pop());
     	}
     	while(stack2.isEmpty() == false) {
     		stack1.push(stack2.pop());
     	}
+    	// Increases the size
     	size++;
+    	// Returns the data that was pushed
     	return data;
     }
 
@@ -59,9 +70,11 @@ public class MinValueStack<T extends Comparable<T>> {
      * @return The minimum value stored in the stack.
      */
     public T minValue(){
+    	// Checks to see if the stack is empty and then throw an exception
     	if(isEmpty()) {
     		throw new EmptyStackException();
     	}
+    	// Returns the min value of the ordered stack
     	return stack1.peek();
     }
 
@@ -70,9 +83,11 @@ public class MinValueStack<T extends Comparable<T>> {
      * @return The popped data.
      */
     public T pop(){ 
+    	// Checks to see if the stack is empty and then throw an exception
     	if (isEmpty()) {
     		throw new EmptyStackException();
     	}
+    	// Decreases the size
     	size--;
     	return stack1.pop();
     }
@@ -82,6 +97,7 @@ public class MinValueStack<T extends Comparable<T>> {
      * @return true if stack is empty, else false.
      */
     public boolean isEmpty(){
+    	// Checks to see if the stack is empty and returns true if empty
     	if(getSize() == 0) {
     		return true;
     	}

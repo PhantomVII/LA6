@@ -1,3 +1,10 @@
+/*
+ * Author: Steven Hawes
+ * Class: CS1120
+ * Project: LA6
+ * Description: To learn and develop skills relating to past knowledge and 
+ * data storage types
+ */
 package edu.wmich.cs1120.la6.stevenhawes;
 
 import java.util.EmptyStackException;
